@@ -1,17 +1,16 @@
 class FarmAnimal:
-
-    def __init__(self, weight, growth, nlegs, cover, color, move_mode, speech, gender=""):
-       self.weight = weight
-       self.growth = growth
-       self.nlegs = nlegs
-       self.cover = cover
-       self.color = color
-       self.move_mode = move_mode
-       self.speech = speech
-       self.gender = gender.lower()
+    def __init__(self, weight, growth, n_legs, cover, color, move_mode, speech, gender=""):
+        self.weight = weight
+        self.growth = growth
+        self.n_legs = n_legs
+        self.cover = cover
+        self.color = color
+        self.move_mode = move_mode
+        self.speech = speech
+        self.gender = gender.lower()
 
     def get_color(self):
-      return self.color
+        return self.color
 
     def get_weight(self):
         return self.weight
@@ -19,8 +18,8 @@ class FarmAnimal:
     def get_growth(self):
         return self.growth
 
-    def get_nlegs(self):
-        return self.nlegs
+    def get_n_legs(self):
+        return self.n_legs
 
     def get_cover(self):
         return self.cover
@@ -29,7 +28,7 @@ class FarmAnimal:
         return self.move_mode
 
     def how_i_speake(self):
-       return self.speech
+        return self.speech
 
 
 class FarmBird(FarmAnimal):
@@ -37,8 +36,8 @@ class FarmBird(FarmAnimal):
     can_fly = True
     can_swim = True
 
-    def __init__(self, has_wings, can_fly, can_swim, weight, growth, nlegs, cover, color, move_mode, speech, gender):
-        super().__init__(weight, growth, nlegs, cover, color, move_mode, speech, gender)
+    def __init__(self, has_wings, can_fly, can_swim, weight, growth, n_legs, cover, color, move_mode, speech, gender):
+        super().__init__(weight, growth, n_legs, cover, color, move_mode, speech, gender)
         self.has_wings = has_wings
         self.can_fly = can_fly
         self.can_swim = can_swim
@@ -102,17 +101,17 @@ class Cows(FarmMammal):
 
     def set_milk(self):
         if self.give_milk:
-            self.vmilk = 16
+            self.v_milk = 16
 
     def get_milk(self):
-        return self.vmilk
+        return self.v_milk
 
     def set_grass(self):
         if self.need_to_graze:
-            self.vgrass = 45
+            self.v_grass = 45
 
     def get_grass(self):
-        return self.vgrass
+        return self.v_grass
 
 
 class Goat(FarmMammal):
@@ -123,24 +122,24 @@ class Goat(FarmMammal):
 
     def set_milk(self):
         if self.give_milk:
-            self.vmilk = 6
+            self.v_milk = 6
 
     def get_milk(self):
-        return self.vmilk
+        return self.v_milk
 
     def set_grass(self):
         if self.need_to_graze:
-            self.vgrass = 7
+            self.v_grass = 7
 
     def get_grass(self):
-        return self.vgrass
+        return self.v_grass
 
     def set_wool(self):
         if self.gives_wool:
-            self.vwool = 5
+            self.v_wool = 5
 
     def get_wool(self):
-        return self.vwool
+        return self.v_wool
 
 
 class Sheep(FarmMammal):
@@ -150,17 +149,17 @@ class Sheep(FarmMammal):
 
     def set_grass(self):
         if self.need_to_graze:
-            self.vgrass = 10
+            self.v_grass = 10
 
     def get_grass(self):
-        return self.vgrass
+        return self.v_grass
 
     def set_wool(self):
         if self.gives_wool:
-            self.vwool = 3
+            self.v_wool = 3
 
     def get_wool(self):
-        return self.vwool
+        return self.v_wool
 
 
 class Pig(FarmMammal):
@@ -172,24 +171,25 @@ class Pig(FarmMammal):
 class Duck(FarmBird):
 
     def __init__(self, has_wings, weight, growth, color, gender, gives_fluff):
-        super().__init__(has_wings, True, True, weight, growth, 2, "Перья", color, ["Бегает", "Плавает", "Летает"], "Кря", gender)
+        super().__init__(has_wings, True, True, weight, growth, 2, "Перья", color, ["Бегает", "Плавает", "Летает"],
+                         "Кря", gender)
         self.gives_fluff = gives_fluff
 
     def set_egg(self):
         if self.gender == "ж":
-            self.negg = 1
+            self.n_egg = 1
         else:
-            self.negg = 0
+            self.n_egg = 0
 
     def get_egg(self):
-        return self.negg
+        return self.n_egg
 
     def set_fluff(self):
         if self.gives_fluff:
-            self.vfluff = 0.12
+            self.v_fluff = 0.12
 
     def get_fluff(self):
-        return self.vfluff
+        return self.v_fluff
 
 
 class Hen(FarmBird):
@@ -199,32 +199,33 @@ class Hen(FarmBird):
 
     def set_egg(self):
         if self.gender == "ж":
-            self.negg = 1
+            self.n_egg = 1
         else:
-            self.negg = 0
+            self.n_egg = 0
 
     def get_egg(self):
-        return self.negg
+        return self.n_egg
 
 
 class Goose(FarmBird):
 
     def __init__(self, has_wings, weight, growth, color, gender, gives_fluff):
-        super().__init__(has_wings, True, True, weight, growth, 2, "Перья", color, ["Бегает", "Плавает", "Летает"], "Га", gender)
+        super().__init__(has_wings, True, True, weight, growth, 2, "Перья", color, ["Бегает", "Плавает", "Летает"],
+                         "Га", gender)
         self.gives_fluff = gives_fluff
 
     def set_egg(self):
         if self.gender == "ж":
-            self.negg = 1
+            self.n_egg = 1
         else:
-            self.negg = 0
+            self.n_egg = 0
 
     def get_egg(self):
-        return self.negg
+        return self.n_egg
 
     def set_fluff(self):
         if self.gives_fluff:
-            self.vfluff = 0.3
+            self.v_fluff = 0.3
 
     def get_fluff(self):
-        return self.vfluff
+        return self.v_fluff
